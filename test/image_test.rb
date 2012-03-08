@@ -291,16 +291,6 @@ class ImageTest < Test::Unit::TestCase
     img.write "#{Dir.tmpdir}/output.png"
   end
 
-  def test_throw_format_error
-    image = Image.open(SIMPLE_IMAGE_PATH)
-    assert_raise MiniMagick::Error do
-      image.combine_options do |c|
-        c.format "png"
-      end
-    end
-    image.destroy!
-  end
-
   def test_import_pixels_default_format
     columns = 325
     rows = 200
