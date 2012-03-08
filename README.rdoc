@@ -1,3 +1,11 @@
+= EXPERIMENTAL BRANCH!
+
+The purpose of this branch is to explore better support for ImageMagick's other commands beyond mogrify, primarily convert, which the current implementation does not seem to have support for in mind. MiniMagick really prefers you to opperate on an image object, where as ImageMagick allows for a lot of cool and useful operations to take place without having to worry about read/write, for instance:
+
+  $ convert -size 160x -background lightblue -fill white label:"TESTING" -format "%[label:pointsize]" info:
+  #=> 36
+
+
 = MiniMagick
 
 A ruby wrapper for ImageMagick or GraphicsMagick command line.
