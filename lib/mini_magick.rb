@@ -486,9 +486,7 @@ module MiniMagick
 
     def method_missing(symbol, *options)
       guessed_command_name = symbol.to_s.gsub('_','-')
-      if guessed_command_name == "format"
-        raise Error, "You must call 'format' on the image object directly!"
-      elsif MOGRIFY_COMMANDS.include?(guessed_command_name)
+      if MOGRIFY_COMMANDS.include?(guessed_command_name)
         add_command(guessed_command_name, *options)
         self
       elsif IMAGE_CREATION_OPERATORS.include?(guessed_command_name)
